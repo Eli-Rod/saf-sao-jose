@@ -1,267 +1,363 @@
-<!-- Header / Navbar -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-saojose-dark/90 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-saojose-blue to-saojose-gold flex items-center justify-center shadow-lg shadow-saojose-gold/20">
-                <i class="fa-solid fa-jet-fighter text-white text-lg"></i>
-            </div>
-            <div>
-                <span class="font-bold text-xl tracking-wider text-white">EC SÃO JOSÉ</span>
-                <span class="block text-xs font-semibold text-saojose-gold tracking-widest">SAF TECNOLÓGICA</span>
-            </div>
-        </div>
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-            <a href="#ecosistema" class="hover:text-saojose-gold transition">Ecossistema</a>
-            <a href="#pilares" class="hover:text-saojose-gold transition">Pilares da SAF</a>
-            <a href="#roadmap" class="hover:text-saojose-gold transition">Roadmap 2027+</a>
-            <a href="#ct" class="hover:text-saojose-gold transition">CT Série A</a>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAF EC São José | A Águia Tecnológica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b1f3a;
+            --secondary: #163661;
+            --accent: #d4af37;
+            --accent-hover: #f3c643;
+            --text-dark: #1f2937;
+            --text-light: #f3f4f6;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(11, 31, 58, 0.9), rgba(22, 54, 97, 0.85)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 7rem 10% 5rem 10%;
+            text-align: center;
+        }
+
+        .badge {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            color: #d1d5db;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.9rem 2.2rem;
+            border-radius: 6px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title p {
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #4b5563;
+            font-size: 1rem;
+        }
+
+        .stats-banner {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            color: #9ca3af;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: var(--text-light);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-radius: 16px;
+            margin: 4rem auto;
+            max-width: 1100px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            color: #e5e7eb;
+        }
+
+        footer {
+            background-color: #071324;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🦅 SAF EC SÃO JOSÉ</div>
+        <nav>
+            <a href="#ecossistema">Ecossistema</a>
+            <a href="#pilares">Pilares da SAF</a>
+            <a href="#roadmap">Roadmap 2027</a>
+            <a href="#investidores">Seja Investidor</a>
         </nav>
-        <div>
-            <a href="#contato" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-saojose-gold to-amber-500 text-saojose-dark font-bold text-sm shadow-lg shadow-saojose-gold/20 hover:opacity-90 transition transform hover:-translate-y-0.5">
-                Seja Investidor
-            </a>
-        </div>
-    </div>
-</header>
+    </header>
 
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-saojose-dark via-saojose-blue to-saojose-dark">
-    <!-- Background Glows -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-saojose-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/3 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="hero">
+        <span class="badge">Finalista Copa Paulista 2026 • Rumo à Série A</span>
+        <h1>A Águia do Vale na <span>Era Tecnológica</span></h1>
+        <p>Criando a primeira SAF 100% data-driven, fundamentada em inteligência analítica, biomecânica de ponta e inovação no coração do Vale do Silício brasileiro.</p>
+        <a href="#investidores" class="btn">Apresentação para Investidores</a>
+    </section>
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-20">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-saojose-gold/10 border border-saojose-gold/30 text-saojose-gold text-xs sm:text-sm font-semibold mb-6 tracking-wide shadow-inner">
-            <i class="fa-solid fa-trophy"></i> Finalista da Copa Paulista 2026 • Rumo a 2027
-        </span>
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-            A Águia do Vale <br>na <span class="text-transparent bg-clip-text bg-gradient-to-r from-saojose-gold via-amber-200 to-amber-500">Era Tecnológica</span>
-        </h1>
-        <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Criando a primeira SAF 100% data-driven, baseada em inteligência de dados, biomecânica de ponta e inovação no coração do Vale do Silício brasileiro. Visão rumo à Série A.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#pilares" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-saojose-gold text-saojose-dark font-bold text-base shadow-xl shadow-saojose-gold/20 hover:bg-amber-400 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                <span>Explorar Projeto</span>
-                <i class="fa-solid fa-arrow-down"></i>
-            </a>
-            <a href="#contato" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white font-bold text-base hover:bg-slate-800 transition flex items-center justify-center gap-3">
-                <span>Apresentação Executiva</span>
-                <i class="fa-solid fa-file-pdf text-saojose-gold"></i>
-            </a>
-        </div>
-
-        <!-- Highlights Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 pt-12 border-t border-slate-800/80 text-left">
-            <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-xl backdrop-blur-sm">
-                <span class="block text-saojose-gold font-extrabold text-2xl sm:text-3xl">2027</span>
-                <span class="text-xs sm:text-sm text-slate-400">Copa do Brasil / Série D</span>
+    <div class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>2027</h3>
+                <p>Copa do Brasil / Série D</p>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-xl backdrop-blur-sm">
-                <span class="block text-saojose-gold font-extrabold text-2xl sm:text-3xl">SJC/SP</span>
-                <span class="text-xs sm:text-sm text-slate-400">Polo Tecnológico e Aeroespacial</span>
+            <div class="stat-item">
+                <h3>SJC / SP</h3>
+                <p>Polo Tecnológico & Aeroespacial</p>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-xl backdrop-blur-sm">
-                <span class="block text-saojose-gold font-extrabold text-2xl sm:text-3xl">Data-Driven</span>
-                <span class="text-xs sm:text-sm text-slate-400">IA & Analytics Integrado</span>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Data-Driven & Analytics</p>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-xl backdrop-blur-sm">
-                <span class="block text-saojose-gold font-extrabold text-2xl sm:text-3xl">Série A</span>
-                <span class="text-xs sm:text-sm text-slate-400">Visão de Longo Prazo</span>
+            <div class="stat-item">
+                <h3>Série A</h3>
+                <p>Visão de Longo Prazo</p>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Section: Ecossistema -->
-<section id="ecosistema" class="py-24 bg-saojose-dark relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-saojose-gold font-semibold text-sm tracking-widest uppercase">Localização Estratégica</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Por que São José dos Campos?</h2>
-            <p class="text-slate-400 mt-4 text-base sm:text-lg">
-                Estamos na cidade mais tecnológica e evoluída do Brasil. O habitat natural para unir alta performance desportiva e engenharia de precisão.
-            </p>
+    <section id="ecossistema" class="container">
+        <div class="section-title">
+            <h2>Por que São José dos Campos?</h2>
+            <p>O habitat natural perfeito para unir alta performance esportiva e engenharia de precisão.</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 shadow-xl hover:border-saojose-gold/50 transition">
-                <div class="w-14 h-14 rounded-xl bg-saojose-gold/10 border border-saojose-gold/30 flex items-center justify-center text-saojose-gold text-2xl mb-6">
-                    <i class="fa-solid fa-microchip"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Vale do Silício Brasileiro</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Sede de gigantes da tecnologia, do ITA e do Parque Tecnológico. Uma cultura focada em inovação disjuntiva pronta para transformar o modelo de gestão no futebol.
-                </p>
+        <div class="grid-3">
+            <div class="card">
+                <h3>🚀 Vale do Silício Brasileiro</h3>
+                <p>Sede de gigantes da tecnologia, do ITA e do Parque Tecnológico. Uma cultura focada em inovação disruptiva pronta para transformar o modelo de gestão no futebol.</p>
             </div>
-
-            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 shadow-xl hover:border-saojose-gold/50 transition">
-                <div class="w-14 h-14 rounded-xl bg-saojose-gold/10 border border-saojose-gold/30 flex items-center justify-center text-saojose-gold text-2xl mb-6">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Cultura de Alta Performance</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Engenharia aeroespacial, inteligência artificial e ciência de dados aplicadas diretamente ao scouting, tática e desenvolvimento físico dos atletas.
-                </p>
+            <div class="card">
+                <h3>🧠 Cultura de Alta Performance</h3>
+                <p>Engenharia aeroespacial, inteligência artificial e ciência de dados aplicadas diretamente ao scouting, tática e desenvolvimento físico dos atletas.</p>
             </div>
-
-            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 shadow-xl hover:border-saojose-gold/50 transition">
-                <div class="w-14 h-14 rounded-xl bg-saojose-gold/10 border border-saojose-gold/30 flex items-center justify-center text-saojose-gold text-2xl mb-6">
-                    <i class="fa-solid fa-users-rectangle"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Mercado Consumidor Forte</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Região metropolitana com altíssimo poder aquisitivo e uma torcida apaixonada que clama por um representante de peso na elite do futebol nacional.
-                </p>
+            <div class="card">
+                <h3>💰 Mercado Consumidor Forte</h3>
+                <p>Região metropolitana com altíssimo poder aquisitivo e uma torcida apaixonada que clama por um representante de peso na elite do futebol nacional.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Section: Pilares da SAF -->
-<section id="pilares" class="py-24 bg-slate-950 border-t border-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-saojose-gold font-semibold text-sm tracking-widest uppercase">Inovação e Estrutura</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Os Pilares da SAF EC São José</h2>
-            <p class="text-slate-400 mt-4 text-base sm:text-lg">
-                Não buscamos apenas aporte financeiro. Construiremos um ecossistema completo de inteligência técnica e fisiológica.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Pillar list -->
-            <div class="space-y-6">
-                <div class="flex gap-4 items-start bg-slate-900/60 p-5 rounded-xl border border-slate-800/80">
-                    <div class="w-12 h-12 rounded-lg bg-saojose-blue border border-saojose-gold/30 flex-shrink-0 flex items-center justify-center text-saojose-gold text-xl font-bold">
-                        01
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Inteligência de Dados e Analytics Avançado</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Scouting preditivo integrado com big data para mapear talentos de baixo custo e alto retorno. Software proprietário para métricas de desempenho coletivo e simulação tática em tempo real.
-                        </p>
-                    </div>
+    <section id="pilares" style="background-color: #ffffff; padding: 5rem 0;">
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-title">
+                <h2>Pilares Estratégicos da SAF</h2>
+                <p>Inovação que gera valor competitivo dentro e fora de campo.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>📊 Inteligência de Dados & IA</h3>
+                    <p>Scouting preditivo, métricas avançadas de desempenho em tempo real e algoritmos proprietários de análise de mercado e jogo.</p>
                 </div>
-
-                <div class="flex gap-4 items-start bg-slate-900/60 p-5 rounded-xl border border-slate-800/80">
-                    <div class="w-12 h-12 rounded-lg bg-saojose-blue border border-saojose-gold/30 flex-shrink-0 flex items-center justify-center text-saojose-gold text-xl font-bold">
-                        02
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Ciência do Esporte e Fisiologia de Ponta</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Prevenção de lesões por Inteligência Artificial através de sensores, wearables e monitoramento de carga neuromuscular em tempo real, garantindo alta intensidade com menor tempo de inatividade.
-                        </p>
-                    </div>
+                <div class="card">
+                    <h3>⚡ Fisiologia e Saúde Avançada</h3>
+                    <p>Prevenção de lesões com monitoramento biométrico contínuo, wearables de alta precisão e protocolos de recuperação acelerada.</p>
                 </div>
-
-                <div class="flex gap-4 items-start bg-slate-900/60 p-5 rounded-xl border border-slate-800/80">
-                    <div class="w-12 h-12 rounded-lg bg-saojose-blue border border-saojose-gold/30 flex-shrink-0 flex items-center justify-center text-saojose-gold text-xl font-bold">
-                        03
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Gestão Ágil e Governança Corporativa</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Processos transparentes, compliance rigoroso e mentalidade de escala corporativa aplicada ao futebol moderno, atraindo grandes marcas e patrocinadores globais.
-                        </p>
-                    </div>
+                <div class="card">
+                    <h3>🏟️ CT Padrão Série A</h3>
+                    <p>Infraestrutura de excelência com laboratório biomecânico integrado, tecnologia imersiva de análise tática e equipamentos de ponta.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- CT Highlight Card -->
-            <div id="ct" class="bg-gradient-to-br from-saojose-blue/40 to-slate-900 border border-saojose-gold/30 rounded-3xl p-8 relative overflow-hidden shadow-2xl">
-                <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-saojose-gold/10 rounded-full blur-2xl"></div>
-                <span class="px-3 py-1 rounded bg-saojose-gold/20 text-saojose-gold text-xs font-bold uppercase tracking-wider">Infraestrutura</span>
-                <h3 class="text-2xl font-extrabold text-white mt-4 mb-4">Centro de Treinamento Padrão Série A</h3>
-                <p class="text-slate-300 text-sm mb-6 leading-relaxed">
-                    Projeto de construção de um CT moderno equipado com laboratório biomecânico integrado, salas de análise tática imersiva, câmara hiperbárica e tecnologia de ponta para recuperação acelerada dos atletas.
-                </p>
-                <ul class="space-y-3 text-sm text-slate-300">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-saojose-gold"></i> Equipamentos de recuperação de última geração</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-saojose-gold"></i> Centro de análise de desempenho com IA</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-saojose-gold"></i> Campos com padrão internacional de gramado e drenagem</li>
-                </ul>
+    <section id="roadmap" class="container">
+        <div class="section-title">
+            <h2>Roadmap de Crescimento (2027 - 2032)</h2>
+            <p>Uma trajetória sólida e planejada rumo ao topo do futebol brasileiro.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Fase 1 (2027)</h3>
+                <p><strong>Fundação e Estruturação:</strong> Constituição da SAF, captação de investimento semente, disputa sólida na Copa do Brasil/Série D e implementação do núcleo de dados.</p>
+            </div>
+            <div class="card">
+                <h3>Fase 2 (2028 - 2029)</h3>
+                <p><strong>Escalabilidade:</strong> Acesso à Série B, consolidação das categorias de base orientadas por métricas e expansão de receitas digitais e patrocínios.</p>
+            </div>
+            <div class="card">
+                <h3>Fase 3 (2030 - 2032)</h3>
+                <p><strong>A Elite Nacional:</strong> Acesso à Série A, consolidação do EC São José como referência tecnológica na América Latina e sustentabilidade financeira na elite.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Section: Roadmap (2027 - 2032) -->
-<section id="roadmap" class="py-24 bg-saojose-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-saojose-gold font-semibold text-sm tracking-widest uppercase">Escalabilidade</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Roadmap Estratégico (2027–2032)</h2>
-            <p class="text-slate-400 mt-4 text-base sm:text-lg">
-                Um planejamento sólido, estruturado para transformar potencial em vitórias sustentáveis.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Fase 1 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative hover:border-saojose-gold/50 transition">
-                <div class="text-saojose-gold font-bold text-sm mb-2">FASE 1 • 2027</div>
-                <h3 class="text-xl font-bold text-white mb-4">Consolidação e Estruturação</h3>
-                <ul class="space-y-3 text-sm text-slate-400">
-                    <li>• Constituição oficial da SAF EC São José.</li>
-                    <li>• Captação de Seed Investment (Investidores âncora/visionários).</li>
-                    <li>• Disputa qualificada da Copa do Brasil / Série D.</li>
-                    <li>• Implementação da infraestrutura básica de dados.</li>
-                </ul>
-            </div>
-
-            <!-- Fase 2 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative hover:border-saojose-gold/50 transition">
-                <div class="text-saojose-gold font-bold text-sm mb-2">FASE 2 • 2028 - 2029</div>
-                <h3 class="text-xl font-bold text-white mb-4">Acesso à Série B</h3>
-                <ul class="space-y-3 text-sm text-slate-400">
-                    <li>• Profissionalização total da base com scout analítico.</li>
-                    <li>• Expansão de receitas digitais e patrocínios de tecnologia.</li>
-                    <li>• Início das obras do novo Centro de Treinamento.</li>
-                    <li>• Consolidação no cenário nacional.</li>
-                </ul>
-            </div>
-
-            <!-- Fase 3 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative hover:border-saojose-gold/50 transition">
-                <div class="text-saojose-gold font-bold text-sm mb-2">FASE 3 • 2030 - 2032</div>
-                <h3 class="text-xl font-bold text-white mb-4">O Salto para a Série A</h3>
-                <ul class="space-y-3 text-sm text-slate-400">
-                    <li>• Referência nacional em inovação e gestão esportiva.</li>
-                    <li>• Acesso e sustentabilidade financeira na elite do Brasileirão.</li>
-                    <li>• Monetização de ativos internacionais e venda de atletas validados por dados.</li>
-                </ul>
-            </div>
+    <div class="container" style="padding-top: 0;">
+        <div id="investidores" class="cta-section">
+            <h2>Faça Parte da História</h2>
+            <p>Buscamos parceiros estratégicos e visionários — com o perfil de líderes como Pablo Marçal — prontos para abraçar um projeto de disrupção, inovação e crescimento exponencial no futebol.</p>
+            <a href="mailto:contato@exemplo.com" class="btn">Seja um Investidor Âncora</a>
         </div>
     </div>
-</section>
 
-<!-- Section: CTA / Contato -->
-<section id="contato" class="py-24 bg-gradient-to-t from-saojose-blue/60 to-saojose-dark border-t border-slate-800 relative">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-block p-3 rounded-2xl bg-saojose-gold/10 text-saojose-gold text-2xl mb-6">
-            <i class="fa-solid fa-handshake-simple"></i>
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Faça Parte da História da Águia</h2>
-        <p class="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Convidamos investidores visionários como <strong>Pablo Marçal</strong> e líderes empresariais a abraçarem este projeto pioneiro. Vamos transformar o EC São José em um case global de inovação no futebol.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:contato@ecsaojosesaf.com.br" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-saojose-gold text-saojose-dark font-bold text-base shadow-xl shadow-saojose-gold/20 hover:bg-amber-400 transition transform hover:-translate-y-1">
-                <i class="fa-solid fa-envelope mr-2"></i> contato@ecsaojosesaf.com.br
-            </a>
-            <a href="https://wa.me/5512999999999" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-base hover:bg-slate-700 transition flex items-center justify-center gap-2">
-                <i class="fa-brands fa-whatsapp text-green-400 text-lg"></i> Falar com a Diretoria
-            </a>
-        </div>
-    </div>
-</section>
+    <footer>
+        <p>&copy; 2026 Esporte Clube São José (SAF). Todos os direitos reservados. Projeto desenvolvido para inovação na gestão esportiva.</p>
+    </footer>
 
-<!-- Footer -->
-<footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p>© 2026 Esporte Clube São José SAF. Todos os direitos reservados.</p>
-        <p class="text-slate-400">São José dos Campos • SP • Brasil</p>
-    </div>
-</footer>
+</body>
+</html>
